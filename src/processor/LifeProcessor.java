@@ -42,8 +42,10 @@ public class LifeProcessor {
                                 field[y > 0 ? y - 1: hC - 1][x < wC - 1 ? x + 1: 0] +
                                 field[y < hC - 1 ? y + 1: 0][x > 0 ? x - 1: wC - 1] +
                                 field[y < hC - 1 ? y + 1: 0][x < wC - 1 ? x + 1: 0];
-                        if (z == 1 && (neighboursCount == 2 || neighboursCount == 3) || z == 0 && neighboursCount == 3) {
+                        if (z == 1 && (neighboursCount == 2 || neighboursCount == 3) || z == 0 && neighboursCount == 3 || z == 2 && (neighboursCount < 4)) {
                             newField[y][x] = 1;
+                        } else if (z == 0 && neighboursCount == 6 || z == 1 && neighboursCount > 9) {
+                            newField[y][x] = 2;
                         } else {
                             newField[y][x] = 0;
                         }

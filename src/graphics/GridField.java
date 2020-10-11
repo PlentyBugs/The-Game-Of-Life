@@ -39,10 +39,12 @@ public class GridField extends JPanel implements MouseListener, MouseMotionListe
 
         for (int y = 0; y < hC; y++) {
             for (int x = 0; x < wC; x++) {
-                if (field[y][x] == 0) {
-                    graphics2D.setColor(Color.BLACK);
-                } else {
+                if (field[y][x] == 1) {
                     graphics2D.setColor(Color.WHITE);
+                } else if (field[y][x] == 2) {
+                    graphics2D.setColor(Color.YELLOW);
+                } else {
+                    graphics2D.setColor(Color.BLACK);
                 }
                 Rectangle2D.Double rect = new Rectangle2D.Double(x * size, y * size, size, size);
                 graphics2D.fill(rect);
