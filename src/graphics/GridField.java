@@ -1,5 +1,8 @@
 package graphics;
 
+import model.Cell;
+import model.WhiteCell;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -11,10 +14,10 @@ public class GridField extends JPanel implements MouseListener, MouseMotionListe
 
     private final int width;
     private final int height;
-    private final int[][] field;
+    private final Cell[][] field;
     private final int size;
 
-    public GridField(int width, int height, int[][] field, int size) {
+    public GridField(int width, int height, Cell[][] field, int size) {
         this.width = width;
         this.height = height;
         this.field = field;
@@ -39,13 +42,7 @@ public class GridField extends JPanel implements MouseListener, MouseMotionListe
 
         for (int y = 0; y < hC; y++) {
             for (int x = 0; x < wC; x++) {
-                if (field[y][x] == 1) {
-                    graphics2D.setColor(Color.WHITE);
-                } else if (field[y][x] == 2) {
-                    graphics2D.setColor(Color.YELLOW);
-                } else {
-                    graphics2D.setColor(Color.BLACK);
-                }
+                graphics2D.setColor(field[y][x].getColor());
                 Rectangle2D.Double rect = new Rectangle2D.Double(x * size, y * size, size, size);
                 graphics2D.fill(rect);
             }
@@ -61,7 +58,7 @@ public class GridField extends JPanel implements MouseListener, MouseMotionListe
         int x = e.getX();
         int y = e.getY();
         if (x < width && y < height && x > 0 && y > 0) {
-            field[y / size][x / size] = 1;
+            field[y / size][x / size] = WhiteCell.getInstance();
             repaint();
         }
     }
