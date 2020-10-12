@@ -18,7 +18,7 @@ public class RedCell implements Cell {
 
     @Override
     public Cell process(int energy) {
-        return null;
+        return energy % 3 == 0 ? WhiteCell.getInstance() : energy % 11 < 9 ? RedCell.getInstance() : ClearCell.getInstance();
     }
 
     @Override
