@@ -23,6 +23,6 @@ public class YellowCell implements Cell {
 
     @Override
     public int getEnergy() {
-        return 2;
+        return 4;
     }
 }

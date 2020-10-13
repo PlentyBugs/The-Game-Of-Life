@@ -23,6 +23,6 @@ public class WhiteCell implements Cell {
 
     @Override
     public int getEnergy() {
-        return 1;
+        return 2;
     }
 }
