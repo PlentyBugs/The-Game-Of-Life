@@ -18,7 +18,7 @@ public class ClearCell implements Cell {
 
     @Override
     public Cell process(int energy) {
-        return energy == 3 ? WhiteCell.getInstance() : energy == 6 ? YellowCell.getInstance() : energy % 10 > 8 ? RedCell.getInstance(): energy % 9 == 2 ? GreenCell.getInstance(): getInstance();
+        return energy == WhiteCell.getInstance().getEnergy() * 3 ? WhiteCell.getInstance() : energy == 7 ? YellowCell.getInstance() : energy % 10 > 8 ? RedCell.getInstance(): energy % 11 == 7 ? GreenCell.getInstance(): getInstance();
     }
 
     @Override
